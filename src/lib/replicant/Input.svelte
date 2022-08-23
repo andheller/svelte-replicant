@@ -5,9 +5,7 @@
 	export let components = [];
 	export let current = 0;
 	export let input_w;
-	let update_editor_source;
 
-	// 	let textarea;
 	let codemirror;
 
 	function get_max(_components) {
@@ -27,8 +25,8 @@
 
 		current = id;
 		codemirror.update_editor_source('');
-		// textarea.focus();
 	}
+
 	function update_component_source(new_code) {
 		components[current_component].source = new_code;
 	}
@@ -47,17 +45,10 @@
 		}}
 		on:new={new_component}
 	/>
-	<!-- <textarea
-		class="grow h-96 p-4"
-		bind:values={components[current_component].source}
-		bind:this={textarea}
-	/> -->
 
 	<CodeMirror
 		{update_component_source}
 		bind:text={components[current_component].source}
 		bind:this={codemirror}
 	/>
-	<!-- {JSON.stringify(components[current_component].source)} -->
-	<!-- <button on:click={() => codemirror.update_editor_source('')}>Update</button> -->
 </section>
