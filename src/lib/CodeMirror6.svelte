@@ -79,4 +79,10 @@
 	}
 </script>
 
-<div bind:this={editor} />
+<div bind:this={editor} class="text-base sm:text-sm h-full" />
+
+<style>
+	:global(.cm-editor) {
+		height: 100%;
+	}
+</style>

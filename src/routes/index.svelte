@@ -1,5 +1,7 @@
 <script>
-	import Replicant from '$lib/replicant/index.svelte';
+	import Replicant from '$lib/repl/index.svelte';
 </script>
 
-<Replicant />
+<div class="h-full">
+	<Replicant />
+</div>

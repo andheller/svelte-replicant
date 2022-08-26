@@ -4,7 +4,6 @@
 
   export let components = [];
   export let current = 0;
-  export let input_w;
 
   let codemirror;
 
@@ -25,8 +24,8 @@
 
     current = id;
     codemirror.update_editor_source("");
-    // textarea.focus();
   }
+
   function update_component_source(new_code) {
     components[current_component].source = new_code;
   }
@@ -35,7 +34,7 @@
   $: tabs = components.map(({ id, name, type }) => ({ id, name, type }));
 </script>
 
-<section class="items-stretch flex flex-col" style="width:{input_w}%">
+<section class="items-stretch flex flex-col h-full overflow-scroll w-full">
   <Tabs
     {tabs}
     {current}
@@ -45,11 +44,6 @@
     }}
     on:new={new_component}
   />
-  <!-- <textarea
-		class="grow h-96 p-4"
-		bind:values={components[current_component].source}
-		bind:this={textarea}
-	/> -->
 
   <CodeMirror
     {update_component_source}
